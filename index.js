@@ -127,3 +127,57 @@ for (let item of arr) {
 console.log (newArr.length)
 console.log(newArr)
 
+/*7*/
+
+/*7.1*/
+//У вас есть массив объектов user, и в каждом из них есть user.name.
+//     Напишите код, который преобразует их в массив имён.
+
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let users = [ vasya, petya, masha ];
+
+let names = users.map(items =>
+    items.name
+)
+
+console.log(users)
+
+console.log(names) ; // Вася, Петя, Маша
+
+/*7.2*/
+
+// У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
+//
+// Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
+//
+// Например:
+
+let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+let petya = { name: "Петя", surname: "Иванов", id: 2 };
+let masha = { name: "Маша", surname: "Петрова", id: 3 };
+
+let users = [ vasya, petya, masha ];
+
+let usersMapped = [];
+
+users.map(item => {
+    let fullname = item.name + ' ' + item.surname;
+    usersMapped.push({'fullname': fullname,'id': item.id});
+    //     usersMapped.id.push(item.id);
+})
+
+/*
+usersMapped = [
+  { fullName: "Вася Пупкин", id: 1 },
+  { fullName: "Петя Иванов", id: 2 },
+  { fullName: "Маша Петрова", id: 3 }
+]
+*/
+
+console.log( usersMapped[0].id ) // 1
+console.log( usersMapped[0].fullname ) // Вася Пупкин
+// Итак, на самом деле вам нужно трансформировать один массив объектов в другой. Попробуйте использовать =>. Это небольшая уловка.
